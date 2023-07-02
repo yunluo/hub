@@ -344,13 +344,12 @@
 
 <body>
     <div id="header">
-        <h1><a href="index.html">My Online Tools</a></h1>
+        <h1><a href="/">云落在线工具集</a></h1>
     </div>
     <div id="body">
         <div id="index"></div>
 
-        <p>Please contact <a href="mailto:emn178@gmail.com">emn178@gmail.com</a> or <a
-                href="https://github.com/emn178/online-tools/issues">create issues</a> if any problem.</p>
+        <p>如有问题可以联系云落 VX:yunluoV584</p>
 
     </div>
     <div id="footer">&copy; 2015-2023 Online Tools</div>
@@ -358,6 +357,7 @@
         window.addEventListener('load', async () => {
             try {
                 console.log('page is fully loaded');
+
                 const response = await fetch('data.json');
                 const json = await response.json();
 
