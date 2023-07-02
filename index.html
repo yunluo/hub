@@ -355,24 +355,26 @@
     </div>
     <div id="footer">&copy; 2015-2023 Online Tools</div>
     <script>
-        window.addEventListener('load', (event) => {
-            console.log('page is fully loaded');
-            let ul = '';
-            fetch('data.json')
-                .then(response => response.json())
-                .then(json => {
-                    for (const link_obj of json) {
-                        ul += "<ul class=\"menu\"><li><div class=\"menu-group\">开发相关</div></li>";
-                            for (const link_data of link_obj.data) {
-                                ul += "<li><a target=\"_blank\" href=\""+link_data.link +"\">"+link_data.title+"</a></li>";
-                            }
+        window.addEventListener('load', async () => {
+            try {
+                console.log('page is fully loaded');
+                const response = await fetch('data.json');
+                const json = await response.json();
 
-                        ul += "</ul>";
-                    }
-                    document.querySelector("#index").innerHTML = ul;
-                })
-                .catch(err => { console.log('Request Failed', err) });
-        })
+                let ul = '';
+                json.forEach(link_obj => {
+                    ul += `<ul class="menu"><li><div class="menu-group">${link_obj.name}</div></li>`;
+                    link_obj.data.forEach(link_data => {
+                        ul += `<li><a target="_blank" href="${link_data.link}">${link_data.title}</a></li>`;
+                    });
+                    ul += "</ul>";
+                });
+
+                document.querySelector("#index").innerHTML = ul;
+            } catch (err) {
+                console.log('Request Failed', err);
+            }
+        });
     </script>
 </body>
 
