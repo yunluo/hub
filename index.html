@@ -1,133 +1,143 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Online tools provides md2, md5, sha1, sha2, sha512, bas64, html encode / decode functions">
-    <title>My Online Tools</title>
 
-    <style>body, html, h1, h2 {
+<head>
+  <meta charset="utf8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description"
+    content="Online tools provides md2, md5, sha1, sha2, sha512, bas64, html encode / decode functions">
+  <title>云落在线工具集</title>
+
+  <style>
+    body,
+    html,
+    h1,
+    h2 {
       margin: 0;
       padding: 0;
-      font-family: "SF Pro TC","SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+      font-family: "SF Pro TC", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
       color: #333;
     }
-    
-    a, a:visited {
+
+    a,
+    a:visited {
       color: #828282;
       text-decoration: none;
     }
-    
-    a:hover, a.active {
+
+    a:hover,
+    a.active {
       color: #4183c4;
     }
-    
+
     #header {
       background-color: #2d2d2d;
       color: white;
       text-align: center;
     }
-    
+
     #header a {
       color: white;
     }
-    
+
     #body {
       width: 1024px;
       margin: 0 auto;
       margin-top: 20px;
     }
-    
+
     #body:after {
       content: '';
       clear: both;
       display: block;
     }
-    
+
     #sidebar {
       float: left;
       width: 327px;
       margin-left: 20px;
     }
-    
+
     #sidebar:after {
       content: '';
       clear: both;
       display: block;
     }
-    
+
     .col {
       width: 50%;
       float: left;
     }
-    
+
     .option-block {
       padding: 5px;
       border-bottom: 3px dashed #D0CCCC;
     }
-    
+
     #bits {
-      width:100px;
+      width: 100px;
     }
-    
+
     .menu {
       padding: 0;
       margin: 0;
     }
-    
+
     .menu li {
       list-style: none;
     }
-    
-    .menu li a, .menu-group {
+
+    .menu li a,
+    .menu-group {
       display: block;
       min-height: 30px;
       line-height: 30px;
       padding-left: 20px;
     }
-    
+
     .menu-group {
       font-weight: bold;
     }
-    
-    .menu li a:hover, .menu li a.active {
+
+    .menu li a:hover,
+    .menu li a.active {
       padding-left: 19px;
       border-left: 1px solid #828282
     }
-    
+
     #index:after {
       content: '';
       clear: both;
       display: block;
     }
-    
+
     #index .menu {
       float: left;
       min-width: 200px;
     }
-    
+
     #main {
       float: left;
       width: 677px;
     }
-    
+
     #main h1 {
       margin: 10px 0;
       border-bottom: 1px solid #eee;
     }
-    
+
     .description {
       color: gray;
       margin: 10px 0;
     }
-    
+
     .submit {
       height: 60px;
       line-height: 50px;
       text-align: center;
     }
-    
+
     #droppable-zone {
       border: 10px dashed #ccc;
       height: 200px;
@@ -135,17 +145,17 @@
       position: relative;
       overflow: hidden;
     }
-    
+
     #droppable-zone.hover {
       border: 10px dashed #aaa;
     }
-    
+
     #droppable-zone-wrapper {
       display: table;
       height: 100%;
       width: 100%;
     }
-    
+
     #droppable-zone-text {
       display: table-cell;
       text-align: center;
@@ -153,7 +163,7 @@
       font-size: 33px;
       overflow: hidden;
     }
-    
+
     .droppable-file {
       position: absolute;
       top: 0;
@@ -163,9 +173,9 @@
       width: 100%;
       cursor: pointer;
     }
-    
+
     textarea {
-      font-family:Consolas,'Lucida Console','DejaVu Sans Mono',monospace;
+      font-family: Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace;
       font-size: 12pt;
       max-width: 95%;
       width: 95%;
@@ -174,32 +184,42 @@
       -webkit-border-radius: 10px;
       -moz-border-radius: 10px;
       border-radius: 10px;
-      background: #e0e0e0; /* Old browsers */
-      background: -moz-linear-gradient(top, #e0e0e0 0%, #ffffff 100%); /* FF3.6+ */
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e0e0e0), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
-      background: -webkit-linear-gradient(top, #e0e0e0 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
-      background: -o-linear-gradient(top, #e0e0e0 0%,#ffffff 100%); /* Opera 11.10+ */
-      background: -ms-linear-gradient(top, #e0e0e0 0%,#ffffff 100%); /* IE10+ */
-      background: linear-gradient(to bottom, #e0e0e0 0%,#ffffff 100%); /* W3C */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0e0e0', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+      background: #e0e0e0;
+      /* Old browsers */
+      background: -moz-linear-gradient(top, #e0e0e0 0%, #ffffff 100%);
+      /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e0e0e0), color-stop(100%, #ffffff));
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #e0e0e0 0%, #ffffff 100%);
+      /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, #e0e0e0 0%, #ffffff 100%);
+      /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, #e0e0e0 0%, #ffffff 100%);
+      /* IE10+ */
+      background: linear-gradient(to bottom, #e0e0e0 0%, #ffffff 100%);
+      /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e0e0e0', endColorstr='#ffffff', GradientType=0);
+      /* IE6-9 */
     }
-    
-    ::-webkit-input-placeholder { 
+
+    ::-webkit-input-placeholder {
       text-align: center;
       line-height: 200px;
       font-size: 16pt;
     }
-    ::-moz-placeholder { 
+
+    ::-moz-placeholder {
       text-align: center;
       line-height: 200px;
       font-size: 16pt;
     }
-    :-ms-input-placeholder{ 
+
+    :-ms-input-placeholder {
       text-align: center;
       line-height: 200px;
       font-size: 16pt;
     }
-    
+
     #footer {
       margin-top: 40px;
       padding-top: 40px;
@@ -210,7 +230,7 @@
       border-top: 1px solid #eee;
       text-align: center;
     }
-    
+
     .btn {
       display: inline-block;
       padding: 6px 12px;
@@ -222,16 +242,17 @@
       white-space: nowrap;
       vertical-align: middle;
       -ms-touch-action: manipulation;
-          touch-action: manipulation;
+      touch-action: manipulation;
       cursor: pointer;
       -webkit-user-select: none;
-         -moz-user-select: none;
-          -ms-user-select: none;
-              user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
       background-image: none;
       border: 1px solid transparent;
       border-radius: 4px;
     }
+
     .btn:focus,
     .btn:active:focus,
     .btn.active:focus,
@@ -242,19 +263,22 @@
       outline: 5px auto -webkit-focus-ring-color;
       outline-offset: -2px;
     }
+
     .btn:hover,
     .btn:focus,
     .btn.focus {
       color: #333;
       text-decoration: none;
     }
+
     .btn:active,
     .btn.active {
       background-image: none;
       outline: 0;
       -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
-              box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+      box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
     }
+
     .btn.disabled,
     .btn[disabled],
     fieldset[disabled] .btn {
@@ -262,29 +286,33 @@
       cursor: not-allowed;
       filter: alpha(opacity=65);
       -webkit-box-shadow: none;
-              box-shadow: none;
+      box-shadow: none;
       opacity: .65;
     }
+
     .btn-default {
       color: #333;
       background-color: #fff;
       border-color: #ccc;
     }
+
     .btn-default:hover,
     .btn-default:focus,
     .btn-default.focus,
     .btn-default:active,
     .btn-default.active,
-    .open > .dropdown-toggle.btn-default {
+    .open>.dropdown-toggle.btn-default {
       color: #333;
       background-color: #e6e6e6;
       border-color: #adadad;
     }
+
     .btn-default:active,
     .btn-default.active,
-    .open > .dropdown-toggle.btn-default {
+    .open>.dropdown-toggle.btn-default {
       background-image: none;
     }
+
     .btn-default.disabled,
     .btn-default[disabled],
     fieldset[disabled] .btn-default,
@@ -306,63 +334,38 @@
       background-color: #fff;
       border-color: #ccc;
     }
+
     .btn-default .badge {
       color: #fff;
       background-color: #333;
     }
-    </style>
-  </head>
-  <body>
-    <div id="header">
-      <h1><a href="index.html">My Online Tools</a></h1>
-    </div>
-    <div id="body">
-      <div id="index">
-        <ul class="menu">
-          <li>
-            <div class="menu-group">开发相关</div>
-          </li>
-          <li><a href="app/c333-selectors.html">c333-selectors</a></li>
-          <li><a href="app/css3please.html">css3please</a></li>
-          <li><a href="app/regexr.html">正则开发1</a></li>
-          <li><a href="app/Regulex.html">正则开发2</a></li>
-          <li><a href="app/nginx.html">nginx配置自动生成</a></li>
-        </ul>
-        <ul class="menu">
-          <li>
-            <div class="menu-group">File Hash</div>
-          </li>
-          <li><a href="crc16_checksum.html">CRC-16</a></li>
-          <li><a href="crc32_checksum.html">CRC-32</a></li>
-          <li><a href="md2_file_hash.html">MD2</a></li>
-          <li><a href="md4_file_hash.html">MD4</a></li>
-          <li><a href="md5_checksum.html">MD5</a></li>
-        </ul>
-        <ul class="menu">
-          <li>
-            <div class="menu-group">Encode</div>
-          </li>
-          <li><a href="base32_encode.html">Base32</a></li>
-          <li><a href="base32_encode_file.html">Base32 File</a></li>
-          <li><a href="base64_encode.html">Base64</a></li>
-        </ul>
-        <ul class="menu">
-          <li>
-            <div class="menu-group">Decode</div>
-          </li>
-          <li><a href="base32_decode.html">Base32</a></li>
-          <li><a href="base32_decode_file.html">Base32 File</a></li>
-          <li><a href="base64_decode.html">Base64</a></li>
-        </ul>
-        <ul class="menu">
-          <li>
-            <div class="menu-group">其他</div>
-          </li>
-          <li><a href="app/markdown/">MaHhua MD编辑器</a></li>
-        </ul>
-      </div><p>Please contact <a href="mailto:emn178@gmail.com">emn178@gmail.com</a> or <a href="https://github.com/emn178/online-tools/issues">create issues</a> if any problem.</p>
+  </style>
+</head>
 
-    </div>
-    <div id="footer">&copy; 2015-2023 Online Tools</div>
-  </body>
+<body>
+  <div id="header">
+    <h1><a href="index.html">My Online Tools</a></h1>
+  </div>
+  <div id="body">
+    <div id="index"></div>
+
+    <p>Please contact <a href="mailto:emn178@gmail.com">emn178@gmail.com</a> or <a
+        href="https://github.com/emn178/online-tools/issues">create issues</a> if any problem.</p>
+
+  </div>
+  <div id="footer">&copy; 2015-2023 Online Tools</div>
+  <script>
+
+    fetch('data.json').then(res => {
+      return res.json()
+    }).then(res => {
+      console.log("get 结果:", res)
+    }).catch(error => {
+      console.log("错误:", error)
+    })
+
+
+  </script>
+</body>
+
 </html>
